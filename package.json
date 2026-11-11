@@ -1,9 +1,0 @@
-{
-  "name": "solidere-atacadista-lattafa",
-  "version": "1.0.0",
-  "description": "Solidere Atacadista - Perfumes Árabes Originais Lattafa Brasil",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  }
-}
