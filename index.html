@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solidere Atacadista | Distribuidora Oficial Perfumes Lattafa Brasil</title>
+  
+  <meta name="description" content="Solidere Atacadista: Líder em perfumes árabes originais no atacado e varejo. Distribuição para todo o Brasil direto de Goiânia - GO com estoque pronta entrega.">
+  <meta name="keywords" content="solidere atacadista, perfumes arabes atacado, lattafa brasil, asad, yara, khamrah, fornecedor perfumes goiania">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/solidere-logo-original.png">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP ANNOUNCEMENT BAR
+       ======================================================================== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-msg">
+        <span class="badge-live">Atacado & Varejo</span>
+        <span>✨ <b>SOLIDERE ATACADISTA</b> · Distribuidora Especializada em Perfumes Árabes Originais Lattafa</span>
+      </div>
+
+      <div class="top-bar-links">
+        <a href="https://www.instagram.com/solidere_atacadista/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i> @solidere_atacadista
+        </a>
+        <a href="https://wa.me/5562984522644" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> (62) 98452-2644
+        </a>
+        
+        <!-- Mode Switcher -->
+        <div class="mode-toggle" title="Alternar visualização de preços">
+          <button id="btnModeRetail" class="active" onclick="setPriceMode(false)">Varejo</button>
+          <button id="btnModeWholesale" onclick="setPriceMode(true)">Atacado</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wholesale notification banner (hidden by default) -->
+  <div id="wholesaleNoticeBanner" style="display:none; background: linear-gradient(90deg, #b45309, #d97706); color: #fff; text-align: center; font-size: 13px; font-weight: 700; padding: 7px 10px;">
+    🔥 <b>MODO ATACADO ATIVADO:</b> Preços especiais para revendedores com margens de até 60% de lucro! Pedido mínimo via WhatsApp.
+  </div>
+
+  <!-- ========================================================================
+       MAIN HEADER
+       ======================================================================== -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-inner">
+        
+        <!-- Brand Logo with smooth luxury treatment -->
+        <div class="brand-wrapper">
+          <a href="#" class="brand-logo-container">
+            <div class="logo-badge">
+              <img src="assets/images/solidere-logo-original.png" alt="Solidere Atacadista Logo" class="logo-img-thumb">
+              <div class="logo-text-group">
+                <span class="logo-title">SOLIDERE</span>
+                <span class="logo-subtitle">ATACADISTA</span>
+              </div>
+            </div>
+          </a>
+          
+          <div class="lattafa-partner-pill">
+            <span class="dot"></span>
+            <span>Linha Oficial Lattafa</span>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar perfumes Lattafa (ex: Asad, Yara, Khamrah, Emeer...)">
+        </div>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="https://wa.me/5562984522644?text=Ol%C3%A1%20Solidere%20Atacadista!%20Gostaria%20de%20solicitar%20a%20tabela%20de%20perfumes%20Lattafa%20no%20atacado." target="_blank" rel="noopener" class="btn-contact-header">
+            <i class="fab fa-whatsapp"></i> Falar com Vendedor
+          </a>
+          
+          <button id="cartBtn" class="btn-cart" title="Ver Sacola de Pedido">
+            <i class="fas fa-shopping-bag"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       NAVIGATION MENU
+       ======================================================================== -->
+  <nav class="nav-bar">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="#" class="active" data-category="all" onclick="filterByCategory('all')">Todos os Perfumes</a></li>
+        <li><a href="#productsSection" data-category="Feminino" onclick="filterByCategory('Feminino')">Feminino</a></li>
+        <li><a href="#productsSection" data-category="Masculino" onclick="filterByCategory('Masculino')">Masculino</a></li>
+        <li><a href="#productsSection" data-category="Compartilhável" onclick="filterByCategory('Compartilhável')">Compartilhável</a></li>
+        <li><a href="#productsSection" data-category="Lattafa Pride" onclick="filterByCategory('Lattafa Pride')">Coleção Pride</a></li>
+        <li><a href="#productsSection" data-category="Body Splash" onclick="filterByCategory('Body Splash')">Body Splash</a></li>
+        <li><a href="#calcSection" class="highlight-atacado"><i class="fas fa-coins"></i> Calculadora Atacado</a></li>
+        <li><a href="#instagramSection"><i class="fab fa-instagram"></i> @solidere_atacadista</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       HERO CAROUSEL SLIDER (ORIGINAL LATTAFA FULL BANNERS)
+       ======================================================================== -->
+  <section class="hero-slider">
+    <div class="slide-track" id="slideTrack">
+      
+      <!-- Slide 1: Lattafa Black / Yara & Asad -->
+      <div class="slide">
+        <img src="assets/images/banner-hero-1.png" alt="Lattafa Black & Coleção Exclusiva">
+        <div class="slide-content-overlay">
+          <div class="slide-text-box">
+            <span class="slide-tag">Solidere Atacadista · Importação Direta</span>
+            <h1 class="slide-title">O Fascínio da Alta Perfumaria Árabe</h1>
+            <p class="slide-desc">Fragrâncias originais com projeção lendária e fixação marcante. Compre no atacado com margens exclusivas para revenda.</p>
+            <div class="slide-buttons">
+              <a href="#productsSection" class="btn-primary-gold" onclick="setPriceMode(true)">
+                <i class="fas fa-boxes-stacked"></i> Ver Tabela Atacado
+              </a>
+              <a href="https://wa.me/5562984522644?text=Ol%C3%A1%20Solidere!%20Quero%20receber%20o%20cat%C3%A1logo%20atualizado%20no%20WhatsApp." target="_blank" class="btn-secondary-dark">
+                <i class="fab fa-whatsapp"></i> Catálogo Completo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Lançamento Fahad & Asad Elixir -->
+      <div class="slide">
+        <img src="assets/images/banner-hero-2.png" alt="Lançamentos Lattafa">
+        <div class="slide-content-overlay">
+          <div class="slide-text-box">
+            <span class="slide-tag">Novidades 2026</span>
+            <h2 class="slide-title">Lançamentos Exclusivos a Pronta Entrega</h2>
+            <p class="slide-desc">Estoque físico pronto para envio imediato em Goiânia - GO. Atendimento ágil para lojistas e revendedores de todo o Brasil.</p>
+            <div class="slide-buttons">
+              <a href="#productsSection" class="btn-primary-gold">
+                <i class="fas fa-sparkles"></i> Conferir Novidades
+              </a>
+              <a href="https://www.instagram.com/solidere_atacadista/" target="_blank" class="btn-secondary-dark">
+                <i class="fab fa-instagram"></i> Seguir no Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Coleção Lattafa Pride -->
+      <div class="slide">
+        <img src="assets/images/banner-hero-3.png" alt="Coleção Lattafa Pride">
+        <div class="slide-content-overlay">
+          <div class="slide-text-box">
+            <span class="slide-tag">Coleção Especial</span>
+            <h2 class="slide-title">Lattafa Pride: O Ápice do Luxo Oriental</h2>
+            <p class="slide-desc">Nebras, Eternal Oud, Shaheen e os frascos mais cobiçados do mundo agora disponíveis para seu negócio.</p>
+            <div class="slide-buttons">
+              <a href="#productsSection" class="btn-primary-gold" onclick="filterByCategory('Lattafa Pride')">
+                <i class="fas fa-crown"></i> Ver Coleção Pride
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Slider controls -->
+    <div class="slider-controls">
+      <button class="slider-btn" id="slidePrev" aria-label="Slide Anterior"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-btn" id="slideNext" aria-label="Próximo Slide"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       BENEFITS BAR (SOLIDERE ATACADISTA SEALS)
+       ======================================================================== -->
+  <section class="benefits-bar">
+    <div class="container">
+      <div class="benefits-grid">
+        
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-truck-fast"></i></div>
+          <div class="benefit-info">
+            <h4>Envio para Todo o Brasil</h4>
+            <p>Despacho expresso e seguro a partir de Goiânia</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+          <div class="benefit-info">
+            <h4>100% Originais dos EAU</h4>
+            <p>Selos de autenticidade e procedência garantida</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+          <div class="benefit-info">
+            <h4>Preços Diretos de Atacado</h4>
+            <p>Condições imbatíveis para revenda e lojistas</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+          <div class="benefit-info">
+            <h4>Atendimento Personalizado</h4>
+            <p>Consultores via WhatsApp prontos para seu pedido</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CATEGORIES SECTION (CIRCULAR SHELF LIKE LATTAFABRASIL.COM)
+       ======================================================================== -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Comprar por Categorias</h2>
+        <a href="#productsSection" class="section-action" onclick="filterByCategory('all')">Ver Todos os Produtos &rarr;</a>
+      </div>
+
+      <div class="categories-carousel">
+        
+        <div class="category-card" onclick="filterByCategory('Feminino')">
+          <div class="category-img-wrapper">
+            <img src="assets/images/cat-feminino.png" alt="Perfume Feminino">
+          </div>
+          <span>Perfume<br>Feminino</span>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Masculino')">
+          <div class="category-img-wrapper">
+            <img src="assets/images/cat-masculino.png" alt="Perfume Masculino">
+          </div>
+          <span>Perfume<br>Masculino</span>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Compartilhável')">
+          <div class="category-img-wrapper">
+            <img src="assets/images/cat-compartilhavel.png" alt="Perfume Compartilhável">
+          </div>
+          <span>Perfume<br>Compartilhável</span>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Lattafa Pride')">
+          <div class="category-img-wrapper">
+            <img src="assets/images/cat-pride.png" alt="Coleção Lattafa Pride">
+          </div>
+          <span>Coleção<br>Lattafa Pride</span>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('Body Splash')">
+          <div class="category-img-wrapper">
+            <img src="assets/images/cat-body-splash.png" alt="Coleção Body Splash">
+          </div>
+          <span>Coleção<br>Body Splash</span>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('all')">
+          <div class="category-img-wrapper">
+            <img src="assets/images/cat-kits.png" alt="Coleção Kits Lattafa">
+          </div>
+          <span>Coleção<br>Kits Lattafa</span>
+        </div>
+
+        <div class="category-card" onclick="filterByCategory('all')">
+          <div class="category-img-wrapper">
+            <img src="assets/images/cat-lattafa.png" alt="Coleção Clássica Lattafa">
+          </div>
+          <span>Coleção<br>Lattafa</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PRODUCTS SHOWCASE GRID
+       ======================================================================== -->
+  <section class="products-section" id="productsSection">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Catálogo Oficial de Perfumes Lattafa</h2>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <span style="font-size: 13px; font-weight: 600; color: #666;">Modo:</span>
+          <div class="mode-toggle">
+            <button id="btnGridRetail" class="active" onclick="setPriceMode(false)">Varejo</button>
+            <button id="btnGridWholesale" onclick="setPriceMode(true)">Atacado</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic products grid injected by app.js -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Loading state -->
+        <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+          <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: #d4af37;"></i>
+          <p style="margin-top: 12px; color: #666;">Carregando produtos do catálogo oficial...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       INSTAGRAM SHOWCASE SECTION (@solidere_atacadista)
+       ======================================================================== -->
+  <section class="instagram-showcase" id="instagramSection">
+    <div class="container">
+      <div class="insta-header">
+        <div class="insta-pill">
+          <i class="fab fa-instagram"></i> @solidere_atacadista oficial
+        </div>
+        <h2 class="insta-title">Acompanhe a <span>Solidere Atacadista</span> no Instagram</h2>
+        <p class="insta-desc">
+          🥇 Líder em Atacado e Varejo de Perfumes Árabes · ✨ 100% Originais · 🤝 Confiança, agilidade e entrega rápida para lojistas de todo o Brasil!
+        </p>
+      </div>
+
+      <!-- Real Instagram Metrics from bio -->
+      <div class="insta-stats-bar">
+        <div class="stat-box">
+          <div class="stat-num">+41.000</div>
+          <div class="stat-lbl">Seguidores no Instagram</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">+900</div>
+          <div class="stat-lbl">Publicações & Unboxings</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-lbl">Procedência Garantida</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">Goiânia - GO</div>
+          <div class="stat-lbl">Polo de Distribuição</div>
+        </div>
+      </div>
+
+      <!-- Simulated Feed Grid -->
+      <div class="insta-posts-grid">
+        
+        <div class="insta-post-card">
+          <img src="assets/images/banner-hero-1.png" alt="Instagram Post 1">
+          <div class="insta-overlay">
+            <p class="insta-post-text">🔥 Chegaram os novos lotes de Asad e Yara direto dos Emirados Árabes!</p>
+            <div class="insta-post-meta">
+              <span><i class="fas fa-heart"></i> 1.420</span>
+              <span><i class="fas fa-comment"></i> 89</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insta-post-card">
+          <img src="assets/images/cat-pride.png" alt="Instagram Post 2">
+          <div class="insta-overlay">
+            <p class="insta-post-text">✨ Coleção Lattafa Pride: luxo, elegância e alta rotatividade para seu negócio.</p>
+            <div class="insta-post-meta">
+              <span><i class="fas fa-heart"></i> 980</span>
+              <span><i class="fas fa-comment"></i> 64</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insta-post-card">
+          <img src="assets/images/cat-feminino.png" alt="Instagram Post 3">
+          <div class="insta-overlay">
+            <p class="insta-post-text">💖 Yara Rosa, Candy e Tous: Os perfumes femininos mais procurados do momento.</p>
+            <div class="insta-post-meta">
+              <span><i class="fas fa-heart"></i> 2.150</span>
+              <span><i class="fas fa-comment"></i> 142</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insta-post-card">
+          <img src="assets/images/banner-hero-2.png" alt="Instagram Post 4">
+          <div class="insta-overlay">
+            <p class="insta-post-text">📦 Mais um dia de envios em massa para revendedores de Norte a Sul do Brasil!</p>
+            <div class="insta-post-meta">
+              <span><i class="fas fa-heart"></i> 1.830</span>
+              <span><i class="fas fa-comment"></i> 112</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="https://www.instagram.com/solidere_atacadista/" target="_blank" rel="noopener" class="btn-follow-insta">
+          <i class="fab fa-instagram"></i> Seguir @solidere_atacadista no Instagram
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WHOLESALE PROFIT CALCULATOR FOR RESELLERS
+       ======================================================================== -->
+  <section class="calculator-section" id="calcSection">
+    <div class="container">
+      <div class="calc-box">
+        
+        <div class="calc-info">
+          <h3>Calculadora de Lucro para Revendedores</h3>
+          <p>
+            Veja o retorno financeiro ao comprar perfumes Lattafa no atacado com a <b>Solidere Atacadista</b> e revender pelo preço oficial de mercado:
+          </p>
+          
+          <div class="calc-controls">
+            <label for="calcQuantitySlider">
+              Quantidade de Frascos no Pedido: <b id="calcQtyLabel" style="color: var(--color-gold); font-size: 15px;">10 frascos</b>
+            </label>
+            <input type="range" id="calcQuantitySlider" class="range-slider" min="5" max="100" step="5" value="10">
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
+              <span>5 un (Início)</span>
+              <span>50 un</span>
+              <span>100 un (Grade Completa)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-results-card">
+          <div>
+            <div class="result-row">
+              <span>Investimento Atacado Solidere:</span>
+              <b id="calcInvestTotal" style="color: #fff;">R$ 2.599,00</b>
+            </div>
+            <div class="result-row">
+              <span>Faturamento Sugerido (Varejo):</span>
+              <b id="calcRevenueTotal" style="color: #fff;">R$ 3.999,00</b>
+            </div>
+            <div class="result-row total-profit">
+              <span>Lucro Líquido Estimado:</span>
+              <span id="calcProfitTotal">+ R$ 1.400,00</span>
+            </div>
+            <p style="font-size: 11px; color: #888; margin-top: 8px;">
+              *Estimativa baseada no preço médio de atacado Solidere versus preço oficial de varejo.
+            </p>
+          </div>
+
+          <button class="btn-whatsapp-calc" onclick="quoteCalculatorWhatsApp()">
+            <i class="fab fa-whatsapp"></i> Garantir meu Estoque com este Lucro
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MAIN FOOTER
+       ======================================================================== -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+            <div class="logo-badge" style="padding: 4px 10px;">
+              <img src="assets/images/solidere-logo-original.png" alt="Solidere Logo" style="height: 30px;">
+            </div>
+            <div>
+              <span style="font-weight: 800; color: #fff; letter-spacing: 1.5px; font-size: 16px;">SOLIDERE</span><br>
+              <span style="color: #c8a44e; font-size: 9px; letter-spacing: 3px;">ATACADISTA</span>
+            </div>
+          </div>
+          <p>
+            A <b>Solidere Atacadista</b> é líder na distribuição de perfumes árabes originais das marcas mais cobiçadas do Oriente Médio, com destaque para toda a linha Lattafa.
+          </p>
+          <div style="display: flex; gap: 14px; font-size: 20px;">
+            <a href="https://www.instagram.com/solidere_atacadista/" target="_blank" rel="noopener" style="color: #e1306c;"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5562984522644" target="_blank" rel="noopener" style="color: #25d366;"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Categorias</h4>
+          <ul class="footer-links">
+            <li><a href="#productsSection" onclick="filterByCategory('Feminino')">Perfumes Femininos</a></li>
+            <li><a href="#productsSection" onclick="filterByCategory('Masculino')">Perfumes Masculinos</a></li>
+            <li><a href="#productsSection" onclick="filterByCategory('Compartilhável')">Compartilháveis (Unissex)</a></li>
+            <li><a href="#productsSection" onclick="filterByCategory('Lattafa Pride')">Coleção Lattafa Pride</a></li>
+            <li><a href="#productsSection" onclick="filterByCategory('Body Splash')">Body Splash</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atacado & Revenda</h4>
+          <ul class="footer-links">
+            <li><a href="#calcSection">Calculadora de Lucro</a></li>
+            <li><a href="https://wa.me/5562984522644?text=Quero%20ser%20revendedor%20Solidere" target="_blank">Seja um Revendedor</a></li>
+            <li><a href="https://wa.me/5562984522644?text=Condicoes%20de%20envio%20e%20pagamento" target="_blank">Prazos e Envios</a></li>
+            <li><a href="https://www.instagram.com/solidere_atacadista/" target="_blank">Instagram Oficial</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atendimento & Sede</h4>
+          <div class="footer-contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp Vendas:<br><b>+55 (62) 98452-2644</b></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-location-dot"></i>
+            <span>Sede e Distribuição:<br>Goiânia - Goiás · Brasil</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-shield-halved"></i>
+            <span>Garantia de 100% Originalidade</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Solidere Atacadista · Todos os direitos reservados.
+        </div>
+        <div>
+          Linha de Perfumes Árabes Importados Lattafa Brasil Oficial
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SHOPPING CART SLIDE-OVER DRAWER
+       ======================================================================== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-bag" style="color: var(--color-gold);"></i> Seu Pedido Solidere</h3>
+      <button class="cart-close-btn" id="cartCloseBtn">&times;</button>
+    </div>
+
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Injected by app.js -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span>Total Estimado:</span>
+        <span id="cartSubtotal" style="color: var(--color-gold-dark);">R$ 0,00</span>
+      </div>
+      <button class="btn-checkout-zap" id="checkoutZapBtn">
+        <i class="fab fa-whatsapp"></i> Fechar Pedido pelo WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/5562984522644?text=Ol%C3%A1%20Solidere%20Atacadista!%20Vim%20pelo%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" class="float-zap-btn" title="Fale Conosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Supabase JS CDN & Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/supabaseClient.js"></script>
+
+  <!-- Main Application Script -->
+  <script src="assets/app.js"></script>
+</body>
+</html>
